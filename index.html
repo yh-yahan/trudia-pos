@@ -1,355 +1,252 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./src/images/favicon.ico" type="image/x-icon">
-    <title>Trudia | Modern Restaurant POS</title>
-    <link href="./css/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-        
-        :root {
-            --primary: #9a7bff;
-        }
-        
-        .tail-container {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-        
-        .logo-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+    <title>Trudia | Restaurant POS (Beta)</title>
 
-        .hero-bg {
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1625 100%);
-        }
+<link href="./css/output.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-        }
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-        .nav-link {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .nav-link:hover {
-            color: #9a7bff;
-            transform: translateY(-2px);
-        }
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+    }
 
-        .feature-card {
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 25px -5px rgb(154 123 255 / 0.1), 0 8px 10px -6px rgb(154 123 255 / 0.1);
-        }
+    .card {
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 24px;
+        background: white;
+    }
 
-        .screenshot {
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        .screenshot:hover {
-            transform: scale(1.03);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-        }
+    .btn-primary {
+        background: #111827;
+        color: white;
+        padding: 14px 20px;
+        border-radius: 12px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: 0.2s;
+    }
 
-        .purple-glow {
-            box-shadow: 0 0 35px -5px #9a7bff;
-        }
-    </style>
+    .btn-primary:hover {
+        background: #1f2937;
+    }
+
+    .btn-secondary {
+        border: 1px solid #e5e7eb;
+        padding: 14px 20px;
+        border-radius: 12px;
+        font-weight: 500;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .muted {
+        color: #6b7280;
+    }
+
+    .title {
+        font-size: 42px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        color: #6b7280;
+        margin-top: 12px;
+    }
+
+    img {
+        border-radius: 16px;
+        border: 1px solid #e5e7eb;
+    }
+</style>
+
 </head>
-<body class="tail-container bg-zinc-950 text-zinc-200 overflow-x-hidden">
-    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-lg">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-x-3">
-                <img src="./src/images/logo.png" class="w-9 h-9 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl logo-font shadow-lg" />
-                <span class="text-3xl font-semibold tracking-tighter logo-font text-white">Trudia</span>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="#features" class="nav-link text-zinc-400 hover:text-white">Features</a>
-                <a href="#screenshots" class="nav-link text-zinc-400 hover:text-white">Screenshots</a>
-                <a href="#analytics" class="nav-link text-zinc-400 hover:text-white">Analytics</a>
-            </div>
 
-            <div class="flex items-center gap-x-4">
-                <a href="./src/downloads/TrudiaPos-v0.1.2.zip" 
-                download="TrudiaPos-v0.1.2.zip"
-                class="px-6 py-2.5 bg-white text-zinc-900 hover:bg-zinc-100 font-semibold text-sm rounded-2xl transition-all active:scale-95">
-                    Download Beta (Windows)
-                </a>
-            </div>
-        </div>
-    </nav>
+<body class="bg-white text-zinc-900">
 
-    <section class="hero-bg pt-32 pb-24">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="space-y-8">
-                    <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 px-4 py-1.5 rounded-3xl text-sm">
-                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                        <span class="text-emerald-400 font-medium">v0.1.2 • Now Available</span>
-                    </div>
-                    
-                    <h1 class="text-6xl lg:text-2xl font-bold tracking-tighter leading-none logo-font">
-                        The modern POS<br>for independent restaurants</span>
-                    </h1>
-                    
-                    <p class="text-xl text-zinc-400 max-w-lg"> 
-                        Designed for small to medium restaurants who want control without complexity.
-                    </p>
-                    
-                    <div class="flex items-center gap-4">
-                        <a href="./src/downloads/TrudiaPos-v0.1.2.zip" 
-                        download="TrudiaPos-v0.1.2.zip"
-                           class="px-8 py-4 bg-[#9a7bff] hover:bg-violet-500 text-white font-semibold text-lg rounded-3xl transition-all active:scale-95 flex items-center gap-x-3 shadow-lg shadow-purple-500/30">
-                            <i class="fas fa-download"></i>
-                            Download Beta
-                        </a>
-                        
-                        <a href="#screenshots" 
-                           class="px-8 py-4 border border-zinc-700 hover:border-zinc-500 font-medium text-lg rounded-3xl transition-all">
-                            See it in action
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <div class="absolute -inset-10 bg-gradient-to-br from-purple-500/5 to-violet-500/5 rounded-[4rem] blur-3xl"></div>
-                    <img src="./src/images/take_order.png" 
-                         alt="Trudia POS Dashboard" 
-                         class="rounded-3xl border border-zinc-700 shadow-2xl purple-glow screenshot">
-                </div>
-            </div>
-        </div>
-    </section>
+<nav class="border-b border-gray-200 py-4">
+    <div class="container flex justify-between items-center">
+        <div class="font-semibold text-xl">Trudia</div>
 
-    <div class="border-b border-zinc-800 py-6">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-75">
-                <div class="flex items-center gap-x-2 text-sm font-medium">
-                    <i class="fas fa-utensils text-amber-400"></i>
-                    <span>Perfect for cafés & restaurants</span>
-                </div>
-                <div class="flex items-center gap-x-2 text-sm font-medium">
-                    <i class="fas fa-qrcode text-purple-400"></i>
-                    <span>Table management</span>
-                </div>
-                <div class="flex items-center gap-x-2 text-sm font-medium">
-                    <i class="fas fa-chart-line text-emerald-400"></i>
-                    <span>Real-time analytics</span>
-                </div>
-                <div class="flex items-center gap-x-2 text-sm font-medium">
-                    <i class="fas fa-print text-orange-400"></i>
-                    <span>Receipt & Kitchen printing</span>
-                </div>
-            </div>
+    <a href="./src/downloads/TrudiaPos-v0.1.2.zip" class="btn-primary">
+        <i class="fas fa-download"></i>
+        Download Beta
+    </a>
+</div>
+
+</nav>
+
+<section class="section">
+    <div class="container grid md:grid-cols-2 gap-12 items-center">
+
+    <div>
+        <h1 class="title">
+            Restaurant POS Software<br>
+            Built for Small Businesses
+        </h1>
+
+        <p class="subtitle">
+            Trudia is a desktop POS system for restaurants and cafes.
+            Currently in beta for Windows.
+        </p>
+
+        <div class="mt-8 flex gap-4">
+            <a href="./src/downloads/TrudiaPos-v0.1.2.zip" class="btn-primary">
+                <i class="fas fa-download"></i>
+                Download Beta
+            </a>
+
+            <a href="#screenshots" class="btn-secondary">
+                See Screenshots
+            </a>
         </div>
     </div>
 
-    <section id="features" class="py-24 bg-zinc-900">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="text-center mb-16">
-                <span class="px-4 py-2 bg-zinc-800 text-purple-400 text-xs font-mono tracking-widest rounded-full">POWERFUL YET SIMPLE</span>
-                <h2 class="text-5xl font-semibold tracking-tighter mt-4">Everything your restaurant needs</h2>
-                <p class="text-zinc-400 mt-4 max-w-md mx-auto">
-                    From order taking to kitchen display and analytics — all in one beautiful interface.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
-                    <div class="w-12 h-12 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-receipt text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Fast Order Management</h3>
-                    <p class="text-zinc-400">
-                        Create, edit, and manage dine-in, takeaway, and delivery orders with speed. 
-                        Table selection, modifiers, and special requests supported.
-                    </p>
-                    <ul class="mt-6 space-y-3 text-sm">
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Dine-in with table map</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Takeaway &amp; Delivery</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Item modifiers &amp; notes</li>
-                    </ul>
-                </div>
+    <div>
+        <img src="./src/images/take_order.png" alt="Trudia Screenshot">
+    </div>
 
-                <div class="feature-card bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
-                    <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-cash-register text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Smart Checkout</h3>
-                    <p class="text-zinc-400">
-                        Simple and clean checkout experience with loyalty points, discounts, and member phone lookup. 
-                        No complex payment gateways yet, just mark as paid.
-                    </p>
-                    <ul class="mt-6 space-y-3 text-sm">
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Loyalty points system</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Member phone lookup</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Receipt printing</li>
-                    </ul>
-                </div>
+</div>
 
-                <div class="feature-card bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
-                    <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-fire text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Kitchen Display System</h3>
-                    <p class="text-zinc-400">
-                        Real-time kitchen view with NEW, PREPARING, and READY status. 
-                        Designed for kitchen staff to mark items as started or ready.
-                    </p>
-                    <ul class="mt-6 space-y-3 text-sm">
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Order status</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-400"></i> Kitchen tickets</li>
-                    </ul>
-                </div>
+</section>
 
-                <div class="feature-card bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
-                    <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Role-Based Access</h3>
-                    <p class="text-zinc-400">
-                        Secure user management with different roles: Admin, Service Staff, and Kitchen Staff. 
-                        Each role sees only what they need.
-                    </p>
-                </div>
+<section class="section bg-gray-50">
+    <div class="container">
+        <h2 class="text-3xl font-bold">Current Beta Features</h2>
 
-                <div class="feature-card bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
-                    <div class="w-12 h-12 bg-rose-500/10 text-rose-400 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-chart-pie text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Powerful Analytics</h3>
-                    <p class="text-zinc-400">
-                        Know your business better with real-time insights: today's revenue, top items, 
-                        revenue by hour, and last 7 days performance.
-                    </p>
-                </div>
+    <div class="mt-6 grid md:grid-cols-2 gap-3 text-gray-700">
+        <div>✓ Order Management</div>
+        <div>✓ Table Management</div>
+        <div>✓ Kitchen Display System</div>
+        <div>✓ Receipt Printing</div>
+        <div>✓ Backup & Restore</div>
+    </div>
 
-                <div class="feature-card bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
-                    <div class="w-12 h-12 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-print text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Printing Support</h3>
-                    <p class="text-zinc-400">
-                        Print customer receipts and kitchen order tickets directly from the system. 
-                        Clean and professional layouts.
-                    </p>
-                </div>
-            </div>
+    <p class="mt-6 text-gray-500 text-sm">
+        Some features are still in development and may change during beta.
+    </p>
+</div>
+
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-3xl font-bold">Core Features</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-10">
+
+        <div class="card">
+            <h3 class="font-semibold text-lg">Orders</h3>
+            <p class="muted mt-2">
+                Create and manage dine-in, takeaway, and delivery orders.
+            </p>
         </div>
-    </section>
 
-    <section id="screenshots" class="py-24">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-5xl font-semibold tracking-tighter">Built for speed and clarity</h2>
-                <p class="text-zinc-400 mt-3">Here's how Trudia looks in action</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <img src="./src/images/take_order.png" 
-                         alt="Trudia Take Order Screen" 
-                         class="rounded-3xl border border-zinc-700 w-full screenshot shadow-2xl">
-                    <p class="text-center mt-4 text-zinc-400 text-sm">Order taking with table selection</p>
-                </div>
-                <div>
-                    <img src="./src/images/checkout.png" 
-                         alt="Trudia Checkout Screen" 
-                         class="rounded-3xl border border-zinc-700 w-full screenshot shadow-2xl">
-                    <p class="text-center mt-4 text-zinc-400 text-sm">Checkout with loyalty points</p>
-                </div>
-                <div>
-                    <img src="./src/images/kds.png" 
-                         alt="Trudia Kitchen View" 
-                         class="rounded-3xl border border-zinc-700 w-full screenshot shadow-2xl">
-                    <p class="text-center mt-4 text-zinc-400 text-sm">Kitchen display system</p>
-                </div>
-                <div>
-                    <img src="./src/images/analytics.png" 
-                         alt="Trudia Analytics Dashboard" 
-                         class="rounded-3xl border border-zinc-700 w-full screenshot shadow-2xl">
-                    <p class="text-center mt-4 text-zinc-400 text-sm">Analytics dashboard</p>
-                </div>
-            </div>
+        <div class="card">
+            <h3 class="font-semibold text-lg">Tables</h3>
+            <p class="muted mt-2">
+                Track table status and manage seating efficiently.
+            </p>
         </div>
-    </section>
 
-    <section id="analytics" class="py-24 bg-zinc-900">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="grid md:grid-cols-12 gap-12 items-center">
-                <div class="md:col-span-5">
-                    <div class="sticky top-24">
-                        <span class="text-purple-400 font-mono text-sm">KNOW YOUR NUMBERS</span>
-                        <h2 class="text-5xl font-semibold tracking-tighter leading-tight mt-4">
-                            Real insights, not just data
-                        </h2>
-                        <p class="text-zinc-400 mt-6 text-lg">
-                            Track performance daily with clean dashboards. See what's selling, when, and how your team is performing.
-                        </p>
-                        <div class="mt-10 flex items-center gap-4">
-                            <div class="px-6 py-3 bg-zinc-800 rounded-2xl text-sm">Revenue Today</div>
-                            <div class="px-6 py-3 bg-zinc-800 rounded-2xl text-sm">Top Items</div>
-                            <div class="px-6 py-3 bg-zinc-800 rounded-2xl text-sm">Hourly Trends</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:col-span-7">
-                    <div class="bg-zinc-950 border border-zinc-700 rounded-3xl p-8 screenshot">
-                        <img src="./src/images/analytics.png" 
-                             alt="Trudia Analytics" 
-                             class="rounded-2xl w-full">
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+            <h3 class="font-semibold text-lg">Kitchen</h3>
+            <p class="muted mt-2">
+                Kitchen display for order preparation.
+            </p>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section class="py-28 border-t border-zinc-800">
-        <div class="max-w-screen-2xl mx-auto px-8 text-center">
-            <div class="max-w-2xl mx-auto">
-                <h2 class="text-5xl font-semibold tracking-tighter">Ready to try Trudia?</h2>
-                <p class="mt-6 text-zinc-400 text-xl">
-                    Join the beta!<br>
-                    Built with love for restaurant owners who value simplicity and speed.
-                </p>
-                
-                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="./src/downloads/TrudiaPos-v0.1.2.zip" 
-                    download="TrudiaPos-v0.1.2.zip"
-                    class="px-10 py-5 bg-[#9a7bff] hover:bg-violet-600 text-white font-semibold text-xl rounded-3xl transition-all inline-flex items-center justify-center gap-x-3">
-                        <i class="fas fa-download"></i>
-                        Download v0.1.2 (Windows)
-                    </a>
-                </div>
-                
-                <p class="text-xs text-zinc-500 mt-8">
-                    Windows only • Beta version
-                </p>
-            </div>
-        </div>
-    </section>
+</section>
 
-    <footer class="bg-black py-16 border-t border-zinc-900">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-y-8">
-                <div class="flex items-center gap-x-3">
-                    <img src="./src/images/logo.png" class="w-9 h-9 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl logo-font shadow-lg" />
-                    <span class="text-2xl font-semibold tracking-tighter logo-font">Trudia</span>
-                </div>
-                
-                <div class="text-zinc-500 text-sm">
-                    © 2026 Trudia POS. All rights reserved.<br>
-                </div>
-            </div>
+<section id="screenshots" class="section bg-gray-50">
+    <div class="container">
+        <h2 class="text-3xl font-bold">Screenshots</h2>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-10">
+
+        <div>
+            <img src="./src/images/take_order.png">
+            <p class="mt-2 text-sm text-gray-500">Order management</p>
         </div>
-    </footer>
+
+        <div>
+            <img src="./src/images/checkout.png">
+            <p class="mt-2 text-sm text-gray-500">Checkout system</p>
+        </div>
+
+        <div>
+            <img src="./src/images/kds.png">
+            <p class="mt-2 text-sm text-gray-500">Kitchen display</p>
+        </div>
+
+        <div>
+            <img src="./src/images/analytics.png">
+            <p class="mt-2 text-sm text-gray-500">Analytics dashboard</p>
+        </div>
+
+    </div>
+</div>
+
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="card">
+            <h2 class="text-2xl font-bold">About Trudia</h2>
+            <p class="muted mt-3">
+                Trudia is an independently developed restaurant management system focused on simplicity and practical workflows.
+                It is currently in active beta and evolving based on feedback from early users.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-gray-50">
+    <div class="container text-center">
+
+    <h2 class="text-3xl font-bold">Download the Beta</h2>
+    <p class="muted mt-3">
+        Windows only • Free during beta testing
+    </p>
+
+    <div class="mt-6">
+        <a href="./src/downloads/TrudiaPos-v0.1.2.zip" class="btn-primary">
+            <i class="fas fa-download"></i>
+            Download Trudia
+        </a>
+    </div>
+
+</div>
+
+</section>
+
+<footer class="border-t border-gray-200 py-10">
+    <div class="container flex justify-between text-sm text-gray-500">
+        <div>© 2026 Trudia</div>
+        <div>v0.1.2 • Beta</div>
+    </div>
+</footer>
+
 </body>
 </html>
