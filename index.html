@@ -59,14 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-function showComingSoon(e) {
-    e.preventDefault();
-
-    const el = document.getElementById("download-status");
-    el.textContent = "Beta releases on 15th Jun.";
-    el.classList.remove("hidden");
-}
 </script>
 
 <style>
@@ -92,7 +84,8 @@ function showComingSoon(e) {
             </span>
         </div>
 
-        <a href="#" onclick="showComingSoon(event)"
+        <a href="./src/downloads/TrudiaPos-v0.2.0.zip"
+            download
             href="./src/downloads/TrudiaPos-v0.2.0.zip"
             class="px-5 py-2 rounded-xl text-white font-medium"
             style="background:#9a7bff;"
@@ -124,7 +117,8 @@ function showComingSoon(e) {
 
         <div class="mt-10">
             <a
-                href="#" onclick="showComingSoon(event)"
+                href="./src/downloads/TrudiaPos-v0.2.0.zip"
+                download
                 class="inline-flex px-8 py-4 rounded-xl text-white font-semibold"
                 style="background:#9a7bff;"
             >
